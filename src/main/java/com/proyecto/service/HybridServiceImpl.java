@@ -26,12 +26,17 @@ import com.proyecto.domain.pieces.Tire;
 @Service
 public class HybridServiceImpl implements HybridService {
 
-	/**
-	 * Base de datos emulada
-	 */
-	private static final Map<Long, Hybrid> vehiculosHibridos = new HashMap<>();
 
-	static {
+	private Map<Long, Hybrid> vehiculosHibridos = new HashMap<>();
+
+	/**
+	 * Constructor sin parámetros.
+	 */
+	public HybridServiceImpl() {
+		/**
+		 * Base de datos emulada
+		 */
+		
 		Hybrid coche1 = new Hybrid(2L, "Tesla", new Tire("Michelin", 2.5F), new Battery(2L, 8), new Bodywork("Azul", 5),
 				new Engine(2L, true, 120), new Air(50L, true), new HydrogenTank(150L));
 
