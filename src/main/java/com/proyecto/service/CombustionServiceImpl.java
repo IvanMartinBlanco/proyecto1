@@ -25,29 +25,35 @@ import com.proyecto.domain.pieces.Tire;
 @Service
 public class CombustionServiceImpl implements CombustionService {
 	
-
+	private Map<Long, Combustion> vehiculosCombustion = new HashMap<>();
+	
 	/**
-	 * Base de datos emulada
+	 * Constructor sin parámetros.
 	 */
-	private static final Map<Long, Combustion> vehiculosCombustion = new HashMap<>();
+	public CombustionServiceImpl() {
+		/**
+		 * Base de datos emulada
+		 */
+		
+			Combustion coche1 = new Combustion(1L, "Mazda", new Tire("Pirelli", 2.5F), new Battery(1L, 8),
+					new Bodywork("Blanco", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
+					new GasTank());
 
-	static {
-		Combustion coche1 = new Combustion(1L, "Mazda", new Tire("Pirelli", 2.5F), new Battery(1L, 8),
-				new Bodywork("Blanco", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
-				new GasTank());
+			Combustion coche2 = new Combustion(2L, "Seat", new Tire("Michelin", 2.5F), new Battery(1L, 8),
+					new Bodywork("Gris", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
+					new GasTank());
 
-		Combustion coche2 = new Combustion(2L, "Seat", new Tire("Michelin", 2.5F), new Battery(1L, 8),
-				new Bodywork("Gris", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
-				new GasTank());
+			Combustion coche3 = new Combustion(3L, "Peugeot", new Tire("Michelin", 2.5F), new Battery(1L, 8),
+					new Bodywork("Negro", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
+					new GasTank());
 
-		Combustion coche3 = new Combustion(3L, "Peugeot", new Tire("Michelin", 2.5F), new Battery(1L, 8),
-				new Bodywork("Negro", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
-				new GasTank());
-
-		vehiculosCombustion.put(1L, coche1);
-		vehiculosCombustion.put(2L, coche2);
-		vehiculosCombustion.put(3L, coche3);
+			vehiculosCombustion.put(1L, coche1);
+			vehiculosCombustion.put(2L, coche2);
+			vehiculosCombustion.put(3L, coche3);
+		
 	}
+
+
 
 	/**
 	 * Método para recuperar el número de vehículos de combustión.

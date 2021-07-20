@@ -1,11 +1,12 @@
 package com.proyecto.test.service;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -32,32 +33,13 @@ public class CombustionServiceImplTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		sut = new CombustionServiceImpl();
-		this.demoData();
 
 	}
 	
-	private void demoData() {
-		sut.deleteAll();
-		Combustion coche1 = new Combustion(1L, "Mazda", new Tire("Pirelli", 2.5F), new Battery(1L, 8),
-				new Bodywork("Blanco", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
-				new GasTank());
-
-		Combustion coche2 = new Combustion(2L, "Seat", new Tire("Michelin", 2.5F), new Battery(1L, 8),
-				new Bodywork("Gris", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
-				new GasTank());
-
-		Combustion coche3 = new Combustion(3L, "Peugeot", new Tire("Michelin", 2.5F), new Battery(1L, 8),
-				new Bodywork("Negro", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
-				new GasTank());
-
-		sut.save(coche1);
-		sut.save(coche2);
-		sut.save(coche3);
-	}
 	
 
 	@Test
-	@DisplayName("Método count para obtener número de vehículos.")
+	@DisplayName("Test que comprueba el método count para obtener número de vehículos.")
 	void testCount() {
 		
 		Integer vehiculoCombustion = sut.count();
@@ -84,7 +66,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar todos los vehículos a combustión.")
+	@DisplayName("Test que comprueba el método para recuperar todos los vehículos a combustión.")
 	void testFindAll() {
 		
 		List<Combustion> vehiculos = sut.findAll();
@@ -104,7 +86,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo de las puertas.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo de las puertas.")
 	void testFindDoor() {
 		List<Combustion> vehiculos = sut.findDoor(3);
 		assertEquals(3, vehiculos.size());
@@ -118,7 +100,7 @@ public class CombustionServiceImplTest {
 	}
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo de las puertas con un 0 como parámetro.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo de las puertas con un 0 como parámetro.")
 	void testFindDoorZero() {
 		List<Combustion> vehiculos = sut.findDoor(0);
 		assertEquals(0, vehiculos.size());
@@ -133,7 +115,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo de las puertas con un parámetro negativo.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo de las puertas con un parámetro negativo.")
 	void testFindDoorNegative() {
 		List<Combustion> vehiculos = sut.findDoor(-4);
 		assertEquals(0, vehiculos.size());
@@ -147,7 +129,7 @@ public class CombustionServiceImplTest {
 	}
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo del color.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del color.")
 	void testFindColor() {
 		List<Combustion> vehiculos = sut.findColor("Negro");
 		assertEquals(1, vehiculos.size());
@@ -162,7 +144,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo del color con un parámetro null.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del color con un parámetro null.")
 	void testFindColorNull() {
 		List<Combustion> vehiculos = sut.findColor(null);
 		assertEquals(0, vehiculos.size());
@@ -177,7 +159,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo del color con un parámetro sin resultados.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del color con un parámetro sin resultados.")
 	void testFindColorNone() {
 		List<Combustion> vehiculos = sut.findColor("Azul");
 		assertEquals(0, vehiculos.size());
@@ -192,7 +174,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo del nombre del modelo.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del nombre del modelo.")
 	void testFindName() {
 		List<Combustion> vehiculos = sut.findName("Mazda");
 		assertEquals(1, vehiculos.size());
@@ -207,7 +189,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo del nombre del modelo con un parámetro null.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del nombre del modelo con un parámetro null.")
 	void testFindNameNull() {
 		List<Combustion> vehiculos = sut.findName(null);
 		assertEquals(0, vehiculos.size());
@@ -222,7 +204,7 @@ public class CombustionServiceImplTest {
 	
 	
 	@Test
-	@DisplayName("Método para recuperar los vehículos dependiendo del nombre del modelo con un parámetro sin resultados.")
+	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del nombre del modelo con un parámetro sin resultados.")
 	void testFindNameNone() {
 		List<Combustion> vehiculos = sut.findName("abc");
 		assertEquals(0, vehiculos.size());
@@ -235,7 +217,7 @@ public class CombustionServiceImplTest {
 	}
 	
 	@Test
-	@DisplayName("Método para guardar un nuevo vehículo de combustión.")
+	@DisplayName("Test que comprueba el método para guardar un nuevo vehículo de combustión con id autogenerado.")
 	void testSaveCreate() {
 		int cantidad = sut.findAll().size();
 		Combustion vehiculo = new Combustion(0L, "Ford", new Tire("Branston", 4.5F), new Battery(6L, 12),
@@ -251,34 +233,100 @@ public class CombustionServiceImplTest {
 	}
 	
 	@Test
-	@DisplayName("Método para editar un vehículo de combustión.")
+	@DisplayName("Test que comprueba el método para editar un vehículo de combustión.")
 	void testSaveEdit() {
-		int cantidad = sut.findAll().size();
+		int amount = sut.findAll().size();
 		Combustion vehiculo = new Combustion(1L, "Ford", new Tire("Branston", 4.5F), new Battery(6L, 12),
 				new Bodywork("Naranja", 5), new Engine(6L, true, 220), new Air(60L, true), new Injection(12, true),
 				new GasTank());
 		
 		Combustion result = sut.save(vehiculo);
 		assertNotNull(result.getId());
+
+		assertEquals(amount, sut.findAll().size());
+	}
+	
+	@Test
+	@DisplayName("Test que comprueba el método para guardar un nuevo vehículo con un id nuevo.")
+	void testSaveNew() {
+		int cantidad = sut.findAll().size();
+		Combustion vehiculo = new Combustion(6L, "Ford", new Tire("Branston", 4.5F), new Battery(6L, 12),
+				new Bodywork("Naranja", 5), new Engine(6L, true, 220), new Air(60L, true), new Injection(12, true),
+				new GasTank());
 		
-		assertEquals(cantidad, sut.findAll().size());
+		Combustion result = sut.save(vehiculo);
+
+		assertNotNull(result.getId());
+		assertEquals(cantidad+1, sut.findAll().size());
+
 	}
 	
 	
 	
-//	@Override
-//	public Combustion save(Combustion smartphone) {
-//
-//		// asignar un id
-//		if (smartphone.getId() == null || smartphone.getId() == 0L) 
-//			smartphone.setId(getMaxCombustionId() + 1);
-//
-//		vehiculosCombustion.remove(smartphone.getId());
-//		vehiculosCombustion.put(smartphone.getId(), smartphone);
-//		return smartphone;
-//	}
+	@Test
+	@DisplayName("Test que comprueba el método para borrar un vehículo por id.")
+	void testDeleteOne() {
+		int cantidad = sut.findAll().size();
+		boolean delete = sut.delete(1L);
+		
+		assertTrue(delete);
+		assertEquals(cantidad-1, sut.findAll().size());
+		
+	}
 	
 	
+	@Test
+	@DisplayName("Test que comprueba el método para borrar un vehículo por id que no existe.")
+	void testDeleteOneNone() {
+		int cantidad = sut.findAll().size();
+		boolean delete = sut.delete(-4L);
+
+		assertFalse(delete);
+		assertEquals(cantidad, sut.findAll().size());
+		
+	}
+	
+	@Test
+	@DisplayName("Test que comprueba el método para borrar un vehículo por id que no existe.")
+	void testDeleteOneNull() {
+		int cantidad = sut.findAll().size();
+		boolean delete = sut.delete(null);
+
+		assertFalse(delete);
+		assertEquals(cantidad, sut.findAll().size());
+		
+	}
+	
+	
+	
+	@Test
+	@DisplayName("Test que comprueba el método para borrar todos los vehículos de combustión.")
+	void testDeleteAll() {
+
+		sut.deleteAll();
+		
+		assertEquals(0, sut.findAll().size());
+		
+	}
+	
+	@Test
+	@DisplayName("Test que comprueba el método para borrar todos los vehículos de combustión y luego crear uno sobre la lista vacía.")
+	void testDeleteAllAndSave() {
+
+		sut.deleteAll();
+		
+		assertEquals(0, sut.findAll().size());
+		
+		//Comprobación extra para ver que se puede añadir un vehículo a la lista vacía.
+		Combustion vehiculo = new Combustion(0L, "Ford", new Tire("Branston", 4.5F), new Battery(6L, 12),
+				new Bodywork("Naranja", 5), new Engine(6L, true, 220), new Air(60L, true), new Injection(12, true),
+				new GasTank());
+		
+		sut.save(vehiculo);
+		
+		assertEquals(1, sut.findAll().size());
+		
+	}
 	
 	
 
