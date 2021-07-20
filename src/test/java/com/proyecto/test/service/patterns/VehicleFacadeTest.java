@@ -10,6 +10,12 @@ import com.proyecto.domain.Combustion;
 import com.proyecto.domain.Electric;
 import com.proyecto.domain.Hybrid;
 import com.proyecto.domain.Vehicle;
+import com.proyecto.domain.pieces.Air;
+import com.proyecto.domain.pieces.Battery;
+import com.proyecto.domain.pieces.Bodywork;
+import com.proyecto.domain.pieces.Engine;
+import com.proyecto.domain.pieces.EngineBattery;
+import com.proyecto.domain.pieces.Tire;
 import com.proyecto.service.patterns.VehicleFacade;
 import com.proyecto.test.BaseTest;
 
@@ -23,6 +29,10 @@ public class VehicleFacadeTest extends BaseTest{
 		assertEquals(result.getId(),1L);
 		assertEquals(result.getBattery().getId(),1L);
 		assertEquals(result.getBattery().getCapacity(),12);
+		assertTrue(result.getTire() instanceof Tire);
+		assertTrue(result.getBodywork() instanceof Bodywork);
+		assertTrue(result.getAir() instanceof Air);
+		assertTrue(result.getEngine() instanceof Engine);
 		assertEquals(result.getAir().getOn(),true);		
 		assertEquals(result.getEngine().getOn(),true);		
 		assertEquals(result.getBattery().getOn(),true);		
@@ -32,6 +42,7 @@ public class VehicleFacadeTest extends BaseTest{
 
 	}
 	
+	
 	@Test
 	@DisplayName("Comprobar la creación de vehículo híbrido.")
 	void testHybridVehicle() {
@@ -40,6 +51,10 @@ public class VehicleFacadeTest extends BaseTest{
 		assertEquals(result.getId(),1L);
 		assertEquals(result.getBattery().getId(),1L);
 		assertEquals(result.getBattery().getCapacity(),12);
+		assertTrue(result.getTire() instanceof Tire);
+		assertTrue(result.getBodywork() instanceof Bodywork);
+		assertTrue(result.getAir() instanceof Air);
+		assertTrue(result.getEngine() instanceof Engine);
 		assertEquals(result.getAir().getOn(),true);		
 		assertEquals(result.getEngine().getOn(),true);		
 		assertEquals(result.getBattery().getOn(),true);		
@@ -56,6 +71,9 @@ public class VehicleFacadeTest extends BaseTest{
 		assertEquals(result.getId(),2L);
 		assertEquals(result.getBattery().getId(),1L);
 		assertEquals(result.getBattery().getCapacity(),12);
+		assertTrue(result.getTire() instanceof Tire);
+		assertTrue(result.getBodywork() instanceof Bodywork);
+		assertTrue(result.getAir() instanceof Air);
 		assertEquals(result.getAir().getOn(),true);		
 		assertEquals(result.getEngine().getOn(),true);		
 		assertEquals(result.getBattery().getOn(),true);		

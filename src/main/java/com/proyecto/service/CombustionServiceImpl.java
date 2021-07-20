@@ -24,6 +24,7 @@ import com.proyecto.domain.pieces.Tire;
  */
 @Service
 public class CombustionServiceImpl implements CombustionService {
+	
 
 	/**
 	 * Base de datos emulada
@@ -35,11 +36,11 @@ public class CombustionServiceImpl implements CombustionService {
 				new Bodywork("Blanco", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
 				new GasTank());
 
-		Combustion coche2 = new Combustion(1L, "Seat", new Tire("Michelin", 2.5F), new Battery(1L, 8),
+		Combustion coche2 = new Combustion(2L, "Seat", new Tire("Michelin", 2.5F), new Battery(1L, 8),
 				new Bodywork("Gris", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
 				new GasTank());
 
-		Combustion coche3 = new Combustion(1L, "Peugeot", new Tire("Michelin", 2.5F), new Battery(1L, 8),
+		Combustion coche3 = new Combustion(3L, "Peugeot", new Tire("Michelin", 2.5F), new Battery(1L, 8),
 				new Bodywork("Negro", 3), new Engine(1L, true, 120), new Air(50L, true), new Injection(8, true),
 				new GasTank());
 

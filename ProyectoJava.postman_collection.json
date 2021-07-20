@@ -13,7 +13,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/vehicle/combustion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vehicle",
+								"combustion"
+							]
+						}
 					},
 					"response": []
 				},
@@ -22,16 +34,52 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/vehicle/hybrid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vehicle",
+								"hybrid"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Eléctrico",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": null,\r\n        \"model\": \"Toyotas\",\r\n        \"tire\": {\r\n            \"brand\": \"Michelin\",\r\n            \"pressure\": 2.5\r\n        },\r\n        \"battery\": {\r\n            \"id\": 2,\r\n            \"on\": true,\r\n            \"capacity\": 8\r\n        },\r\n        \"bodywork\": {\r\n            \"color\": \"Azul\",\r\n            \"puertas\": 5\r\n        },\r\n        \"started\": true,\r\n        \"engine\": {\r\n            \"id\": 2,\r\n            \"on\": true,\r\n            \"power\": 120\r\n        },\r\n        \"air\": {\r\n            \"gas\": 50,\r\n            \"on\": true\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehicle/electric",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vehicle",
+								"electric"
+							]
+						}
 					},
 					"response": []
 				},
@@ -40,7 +88,19 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/vehicle/electricoasdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vehicle",
+								"electricoasdf"
+							]
+						}
 					},
 					"response": []
 				}
@@ -54,7 +114,18 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/electric",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric"
+							]
+						}
 					},
 					"response": []
 				},
@@ -63,7 +134,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/electric/color/Azul",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric",
+								"color",
+								"Azul"
+							]
+						}
 					},
 					"response": []
 				},
@@ -72,7 +156,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/electric/doors/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric",
+								"doors",
+								"5"
+							]
+						}
 					},
 					"response": []
 				},
@@ -81,43 +178,121 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/electric/name/Toyota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric",
+								"name",
+								"Toyota"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Guardar",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":0,\"model\":\"Toyota\",\"tire\":{\"brand\":\"Michelin\",\"pressure\":2.5},\"battery\":{\"id\":2,\"on\":true,\"capacity\":8},\"bodywork\":{\"color\":\"Azul\",\"puertas\":5},\"started\":true,\"engine\":{\"id\":2,\"on\":true,\"power\":120},\"air\":{\"gas\":50,\"on\":true}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/electric/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric",
+								""
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Modificar",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":3,\"model\":\"Seat\",\"tire\":{\"brand\":\"Marca Blanca\",\"pressure\":1.5},\"battery\":{\"id\":3,\"on\":true,\"capacity\":8},\"bodywork\":{\"color\":\"Morado\",\"puertas\":5},\"started\":true,\"engine\":{\"id\":2,\"on\":true,\"power\":120},\"air\":{\"gas\":50,\"on\":true}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/electric/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric",
+								""
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Borrar por id",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/electric/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric",
+								"4"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Borrar todo",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/electric",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"electric"
+							]
+						}
 					},
 					"response": []
 				}
@@ -131,7 +306,18 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid"
+							]
+						}
 					},
 					"response": []
 				},
@@ -140,7 +326,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid/color/Azul",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid",
+								"color",
+								"Azul"
+							]
+						}
 					},
 					"response": []
 				},
@@ -149,7 +348,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid/doors/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid",
+								"doors",
+								"5"
+							]
+						}
 					},
 					"response": []
 				},
@@ -158,43 +370,119 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid/name/Tesla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid",
+								"name",
+								"Tesla"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Guardar",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":0,\"model\":\"Tesla\",\"tire\":{\"brand\":\"Michelin\",\"pressure\":2.5},\"battery\":{\"id\":2,\"on\":true,\"capacity\":8},\"bodywork\":{\"color\":\"Azul\",\"puertas\":5},\"started\":true,\"engine\":{\"id\":2,\"on\":true,\"power\":120},\"air\":{\"gas\":50,\"on\":true},\"hydrogenTank\":{\"capacity\":150}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Modificar",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":7,\"model\":\"Jaguar\",\"tire\":{\"brand\":\"Mihcelin\",\"pressure\":2.5},\"battery\":{\"id\":2,\"on\":true,\"capacity\":8},\"bodywork\":{\"color\":\"Negro\",\"puertas\":5},\"started\":true,\"engine\":{\"id\":2,\"on\":true,\"power\":120},\"air\":{\"gas\":50,\"on\":true},\"hydrogenTank\":{\"capacity\":150}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Borrar por id",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid",
+								"7"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Borrar todo",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/hybrid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"hybrid"
+							]
+						}
 					},
 					"response": []
 				}
@@ -208,7 +496,18 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/combustion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion"
+							]
+						}
 					},
 					"response": []
 				},
@@ -217,7 +516,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/combustion/color/Blanco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion",
+								"color",
+								"Blanco"
+							]
+						}
 					},
 					"response": []
 				},
@@ -226,7 +538,20 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/combustion/doors/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion",
+								"doors",
+								"3"
+							]
+						}
 					},
 					"response": []
 				},
@@ -235,43 +560,119 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/combustion/name/Seat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion",
+								"name",
+								"Seat"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Guardar",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":0,\"model\":\"Seat\",\"tire\":{\"brand\":\"Michelin\",\"pressure\":2.5},\"battery\":{\"id\":1,\"on\":true,\"capacity\":8},\"bodywork\":{\"color\":\"Gris\",\"puertas\":3},\"started\":true,\"engine\":{\"id\":1,\"on\":true,\"power\":120},\"air\":{\"gas\":50,\"on\":true},\"injection\":{\"number\":8,\"sequential\":true},\"gasTank\":{\"capacity\":500}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/combustion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Modificar",
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":5,\"model\":\"Fiat\",\"tire\":{\"brand\":\"Pirelli\",\"pressure\":2.5},\"battery\":{\"id\":1,\"on\":true,\"capacity\":8},\"bodywork\":{\"color\":\"Gris\",\"puertas\":3},\"started\":true,\"engine\":{\"id\":1,\"on\":true,\"power\":100},\"air\":{\"gas\":50,\"on\":true},\"injection\":{\"number\":8,\"sequential\":true},\"gasTank\":{\"capacity\":500}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/combustion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Borrar por id",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/combustion/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion",
+								"5"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Borrar todo",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://localhost:8080/api/combustion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"combustion"
+							]
+						}
 					},
 					"response": []
 				}
