@@ -16,10 +16,9 @@ public class VehicleFactory {
 	private static final String HYBRID = "hybrid";
 
 	/**
-	 * Constructor que crea una fachada sin parámetros.
+	 * Constructor que crea una fachada sin parámetros privada, para que no se pueda instanciar.
 	 */
-	private VehicleFactory() {
-	}
+
 
 	/**
 	 * Método que permite seleccionar el tipo de vehículo.

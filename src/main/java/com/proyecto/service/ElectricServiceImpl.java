@@ -8,13 +8,15 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.proyecto.domain.Combustion;
 import com.proyecto.domain.Electric;
 import com.proyecto.domain.pieces.Air;
 import com.proyecto.domain.pieces.Battery;
 import com.proyecto.domain.pieces.Bodywork;
 import com.proyecto.domain.pieces.Engine;
 import com.proyecto.domain.pieces.EngineBattery;
-
+import com.proyecto.domain.pieces.GasTank;
+import com.proyecto.domain.pieces.Injection;
 import com.proyecto.domain.pieces.Tire;
 
 /**
@@ -25,12 +27,16 @@ import com.proyecto.domain.pieces.Tire;
 @Service
 public class ElectricServiceImpl implements ElectricService {
 
+	private Map<Long, Electric> vehiculosElectricos = new HashMap<>();
+	
 	/**
-	 * Base de datos emulada
+	 * Constructor sin parámetros.
 	 */
-	private static final Map<Long, Electric> vehiculosElectricos = new HashMap<>();
-
-	static {
+	public ElectricServiceImpl() {
+		/**
+		 * Base de datos emulada
+		 */
+		
 		Electric coche4 = new Electric(2L, "Toyota", new Tire("Michelin", 2.5F), new Battery(2L, 8),
 				new Bodywork("Azul", 5), new Engine(2L, true, 120), new Air(50L, true), new EngineBattery(150L));
 
@@ -43,7 +49,9 @@ public class ElectricServiceImpl implements ElectricService {
 		vehiculosElectricos.put(1L, coche4);
 		vehiculosElectricos.put(2L, coche5);
 		vehiculosElectricos.put(3L, coche6);
+		
 	}
+
 
 	/**
 	 * Método para recuperar el número de vehículos eléctricos.
