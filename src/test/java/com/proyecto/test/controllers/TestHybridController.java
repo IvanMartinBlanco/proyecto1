@@ -32,12 +32,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
+import com.proyecto.domain.Combustion;
 import com.proyecto.domain.Electric;
 import com.proyecto.domain.Hybrid;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class TestElectricController {
+class TestHybridController {
 
 	private TestRestTemplate testRestTemplate;
 
@@ -55,9 +56,9 @@ class TestElectricController {
 
 	@Order(1)
 	@Test
-	@DisplayName("Test GET con todos los coches eléctricos.")
-	void testFindAllElectric() {
-		ResponseEntity<Electric[]> entity = this.testRestTemplate.getForEntity("/api/electric", Electric[].class);
+	@DisplayName("Test GET con todos los coches híbridos.")
+	void testFindAllHybrid() {
+		ResponseEntity<Hybrid[]> entity = this.testRestTemplate.getForEntity("/api/hybrid", Hybrid[].class);
 
 		assertEquals(HttpStatus.OK, entity.getStatusCode());
 
@@ -66,46 +67,49 @@ class TestElectricController {
 	@Order(2)
 	@Test
 	@DisplayName("Test GET con coches según color.")
-	void Electric() {
+	void Hybrid() {
 
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/color/Azul",
-				Electric[].class);
+		ResponseEntity<Hybrid[]> response = this.testRestTemplate.getForEntity("/api/hybrid/color/Azul",
+				Hybrid[].class);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 
-		Electric[] vehiculo = response.getBody();
+		Hybrid[] vehiculo = response.getBody();
 		assertNotEquals(0, vehiculo.length);
-		for (Electric electric : vehiculo) {
-			assertEquals("Azul", electric.getBodywork().getColor());
+		for (Hybrid hibrido : vehiculo) {
+			assertEquals("Azul", hibrido.getBodywork().getColor());
 		}
 	}
 
 	@Order(3)
 	@Test
 	@DisplayName("Test GET con coches según color que no existe.")
-	void testFindByColorElectricNone() {
+	void testFindByColorHybridNone() {
 
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/color/Rojo",
-				Electric[].class);
+		ResponseEntity<Hybrid[]> response = this.testRestTemplate.getForEntity("/api/hybrid/color/Blanco",
+				Hybrid[].class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		Electric[] vehiculo = response.getBody();
+		Hybrid[] vehiculo = response.getBody();
 		assertEquals(0, vehiculo.length);
+		for (Hybrid combustion : vehiculo) {
+			assertEquals("Blanco", combustion.getBodywork().getColor());
+		}
 	}
 
 	@Order(4)
 	@Test
 	@DisplayName("Test GET con coches según número de puertas.")
-	void testFindByDoorElectric() {
+	void testFindByDoorHybrid() {
 
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/doors/5",
-				Electric[].class);
+		ResponseEntity<Hybrid[]> response = this.testRestTemplate.getForEntity("/api/hybrid/doors/5",
+				Hybrid[].class);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 
-		Electric[] vehiculo = response.getBody();
+		Hybrid[] vehiculo = response.getBody();
 		assertNotEquals(0, vehiculo.length);
-		for (Electric electric : vehiculo) {
-			assertEquals(5, electric.getBodywork().getPuertas());
+		for (Hybrid hybrid : vehiculo) {
+			assertEquals(5, hybrid.getBodywork().getPuertas());
 		}
 	}
 
@@ -114,38 +118,38 @@ class TestElectricController {
 	@DisplayName("Test GET con coches según número de puertas que no existe.")
 	void testFindByDoorElectricNone() {
 
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/doors/9",
-				Electric[].class);
+		ResponseEntity<Hybrid[]> response = this.testRestTemplate.getForEntity("/api/hybrid/doors/9",
+				Hybrid[].class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		Electric[] vehiculo = response.getBody();
+		Hybrid[] vehiculo = response.getBody();
 		assertEquals(0, vehiculo.length);
 	}
 
 	@Order(6)
 	@Test
 	@DisplayName("Test GET con coches según nombre del modelo.")
-	void testFindByNameElectric() {
+	void testFindByNameHybrid() {
 
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/name/Toyota",
-				Electric[].class);
+		ResponseEntity<Hybrid[]> response = this.testRestTemplate.getForEntity("/api/hybrid/name/Toyota",
+				Hybrid[].class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 
-		Electric[] vehiculo = response.getBody();
+		Hybrid[] vehiculo = response.getBody();
 		assertNotEquals(0, vehiculo.length);
-		for (Electric electric : vehiculo) {
-			assertEquals("Toyota", electric.getModel());
+		for (Hybrid hybrid : vehiculo) {
+			assertEquals("Toyota", hybrid.getModel());
 		}
 	}
 
 	@Order(7)
 	@Test
 	@DisplayName("Test GET con coches según nombre del modelo que no existe.")
-	void testFindByNameElectricNone() {
+	void testFindByNameHybridNone() {
 
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/name/Mazda",
-				Electric[].class);
+		ResponseEntity<Hybrid[]> response = this.testRestTemplate.getForEntity("/api/hybrid/name/Mazda",
+				Hybrid[].class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-		Electric[] vehiculo = response.getBody();
+		Hybrid[] vehiculo = response.getBody();
 
 		assertEquals(0, vehiculo.length);
 	}
@@ -153,7 +157,7 @@ class TestElectricController {
 	@Order(8)
 	@Test
 	@DisplayName("Test POST para guardar un coche.")
-	void testSaveElectric() {
+	void testSaveHybrid() {
 		
 		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -192,12 +196,12 @@ class TestElectricController {
 
 		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
 
-		final ResponseEntity<Electric> response = testRestTemplate.exchange("/api/electric", HttpMethod.POST, 
-				request, Electric.class);
+		final ResponseEntity<Hybrid> response = testRestTemplate.exchange("/api/hybrid", HttpMethod.POST, 
+				request, Hybrid.class);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 
-		Electric car = response.getBody();
+		Hybrid car = response.getBody();
 		assertNotNull(car.getBodywork());
 		assertEquals("Seat", car.getModel());
 
@@ -206,7 +210,7 @@ class TestElectricController {
 	@Order(9)
 	@Test
 	@DisplayName("Test POST para guardar un coche pasando un id incorrecto.")
-	void testSaveElectricNone() {
+	void testSaveHybridNone() {
 		
 		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -244,7 +248,7 @@ class TestElectricController {
 
 		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
 
-		final ResponseEntity<String> response = testRestTemplate.exchange("/api/electric", HttpMethod.POST,
+		final ResponseEntity<String> response = testRestTemplate.exchange("/api/hybrid", HttpMethod.POST,
 				request, String.class);
 		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
 
@@ -253,7 +257,7 @@ class TestElectricController {
 	@Order(10)
 	@Test
 	@DisplayName("Test PUT para modificar un coche pasando un id.")
-	void testEditElectric() {
+	void testEditHybrid() {
 		
 		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -292,12 +296,12 @@ class TestElectricController {
 
 		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
 
-		final ResponseEntity<Electric> response = testRestTemplate.exchange("/api/electric", HttpMethod.PUT,
-				request, Electric.class);
+		final ResponseEntity<Hybrid> response = testRestTemplate.exchange("/api/hybrid", HttpMethod.PUT,
+				request, Hybrid.class);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 
-		Electric car = response.getBody();
+		Hybrid car = response.getBody();
 		assertEquals("Seat", car.getModel());
 
 	}
@@ -305,7 +309,7 @@ class TestElectricController {
 	@Order(11)
 	@Test
 	@DisplayName("Test PUT para modificar un coche pasando un id incorrecto.")
-	void testEditElectricNone() {
+	void testEditHybridNone() {
 		
 		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -345,7 +349,7 @@ class TestElectricController {
 
 		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
 
-		final ResponseEntity<String> response = testRestTemplate.exchange("/api/electric", HttpMethod.PUT,
+		final ResponseEntity<String> response = testRestTemplate.exchange("/api/hybrid", HttpMethod.PUT,
 				request, String.class);
 		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
 
@@ -355,9 +359,9 @@ class TestElectricController {
 	@Order(12)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id.")
-	void testDeleteElectric() {
+	void testDeleteHybrid() {
 
-		final ResponseEntity<String> response = testRestTemplate.exchange("/api/electric/3", HttpMethod.DELETE,
+		final ResponseEntity<String> response = testRestTemplate.exchange("/api/hybrid/3", HttpMethod.DELETE,
 				null, String.class);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -368,9 +372,9 @@ class TestElectricController {
 	@Order(13)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id incorrecto.")
-	void testDeleteElectricNone() {
+	void testDeleteHybridNone() {
 
-		final ResponseEntity<String> response = testRestTemplate.exchange("/api/electric/6", HttpMethod.DELETE,
+		final ResponseEntity<String> response = testRestTemplate.exchange("/api/hybrid/6", HttpMethod.DELETE,
 				null, String.class);
 
 		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
@@ -381,9 +385,9 @@ class TestElectricController {
 	@Order(14)
 	@Test
 	@DisplayName("Test DELETE para borrar todos los coches.")
-	void testDeleteAllElectric() {
+	void testDeleteAllHybrid() {
 
-		final ResponseEntity<String> response = testRestTemplate.exchange("/api/electric", HttpMethod.DELETE,
+		final ResponseEntity<String> response = testRestTemplate.exchange("/api/hybrid", HttpMethod.DELETE,
 				null, String.class);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
