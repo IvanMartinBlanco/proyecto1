@@ -1,4 +1,4 @@
-package com.proyecto.test.controllers;
+package com.proyecto.test;
 
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.SelectPackages;
