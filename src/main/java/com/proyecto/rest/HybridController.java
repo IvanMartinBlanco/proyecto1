@@ -98,7 +98,7 @@ public class HybridController {
 	 * Función que se usará para guardar un vehículo con POST en la URL:
 	 * http://localhost:8080/api/hybrid
 	 * 
-	 * @param electrico vehículo híbrido a crear.
+	 * @param hibrido vehículo híbrido a crear.
 	 * @return respuesta sobre si se ha creado o no.
 	 */
 	@POST
@@ -114,7 +114,7 @@ public class HybridController {
 	 * Función que se usará para actualizar un vehículo con PUT en la URL:
 	 * http://localhost:8080/api/hybrid
 	 * 
-	 * @param electrico vehículo híbrido a modificar.
+	 * @param hibrido vehículo híbrido a modificar.
 	 * @return respuesta sobre si se ha modificado o no.
 	 */
 	@PUT

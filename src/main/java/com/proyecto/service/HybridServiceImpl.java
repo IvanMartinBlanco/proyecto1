@@ -128,7 +128,7 @@ public class HybridServiceImpl implements HybridService {
 	/**
 	 * Método para guardar nuevos vehículos.
 	 * 
-	 * @param car que hay que guardar.
+	 * @param hibrido que hay que guardar.
 	 * @return vehículo híbrido guardado.
 	 */
 	@Override

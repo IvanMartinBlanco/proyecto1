@@ -38,7 +38,7 @@ public class Electric extends Vehicle {
 	public Electric(Long id, String model, Tire tire, Battery battery, Bodywork bodywork, Engine engine, Air air,
 			EngineBattery engineBattery) {
 		super(id, model, tire, battery, bodywork, engine, air);
-		this.engineBattery = engineBattery;
+		this.engineBattery =  new EngineBattery(engineBattery.getCapacity());
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class Electric extends Vehicle {
 	 * @return batería del motor.
 	 */
 	public EngineBattery getEngineBattery() {
-		return engineBattery;
+		return new EngineBattery(engineBattery.getCapacity());
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class Electric extends Vehicle {
 	 * @param engineBattery que va a tener el coche.
 	 */
 	public void setEngineBattery(EngineBattery engineBattery) {
-		this.engineBattery = engineBattery;
+		this.engineBattery =  new EngineBattery(engineBattery.getCapacity());
 	}
 
 	/**

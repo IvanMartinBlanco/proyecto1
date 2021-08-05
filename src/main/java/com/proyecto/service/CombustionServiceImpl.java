@@ -136,15 +136,15 @@ public class CombustionServiceImpl implements CombustionService {
 	 * @return vehículo de combustión guardado.
 	 */
 	@Override
-	public Combustion save(Combustion smartphone) {
+	public Combustion save(Combustion car) {
 
 		// asignar un id
-		if (smartphone.getId() == null || smartphone.getId() == 0L) 
-			smartphone.setId(getMaxCombustionId() + 1);
+		if (car.getId() == null || car.getId() == 0L) 
+			car.setId(getMaxCombustionId() + 1);
 
-		vehiculosCombustion.remove(smartphone.getId());
-		vehiculosCombustion.put(smartphone.getId(), smartphone);
-		return smartphone;
+		vehiculosCombustion.remove(car.getId());
+		vehiculosCombustion.put(car.getId(), car);
+		return car;
 	}
 
 	/**

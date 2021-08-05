@@ -22,7 +22,7 @@ public class Battery {
 	 * Constructor que crea una batería con parámetros.
 	 * 
 	 * @param id       de la batería.
-	 * @param capacity de la batería.
+	 * @param capacity que tiene la batería.
 	 */
 	public Battery(Long id, Integer capacity) {
 		this.id = id;
@@ -77,7 +77,7 @@ public class Battery {
 	/**
 	 * Método que modifica la capacidad de la batería.
 	 * 
-	 * @param capacity
+	 * @param capacity de la batería.
 	 */
 	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;

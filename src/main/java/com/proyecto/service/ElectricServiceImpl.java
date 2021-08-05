@@ -130,7 +130,7 @@ public class ElectricServiceImpl implements ElectricService {
 	/**
 	 * Método para guardar nuevos vehículos.
 	 * 
-	 * @param car que hay que guardar.
+	 * @param electrico que hay que guardar.
 	 * @return vehículo eléctrico guardado.
 	 */
 	@Override

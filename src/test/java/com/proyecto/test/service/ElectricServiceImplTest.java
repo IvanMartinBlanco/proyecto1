@@ -24,7 +24,7 @@ import com.proyecto.domain.pieces.HydrogenTank;
 import com.proyecto.domain.pieces.Tire;
 import com.proyecto.service.ElectricServiceImpl;
 
-class ElectricServiceImplTest {
+public class ElectricServiceImplTest {
 
 	ElectricServiceImpl sut;
 	

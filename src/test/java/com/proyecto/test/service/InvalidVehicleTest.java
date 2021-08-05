@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import com.proyecto.service.InvalidVehicle;
 
-class InvalidVehicleTest {
+public class InvalidVehicleTest {
 
 	@Test
 	@DisplayName("Comprobar constructor sin parámetros.")

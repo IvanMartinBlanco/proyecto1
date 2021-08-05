@@ -94,7 +94,7 @@ public abstract class Vehicle {
 	 * @return neumáticos del vehículo.
 	 */
 	public Tire getTire() {
-		return tire;
+		return new Tire(tire.getBrand(), tire.getPressure());
 	}
 
 	/**
@@ -103,7 +103,7 @@ public abstract class Vehicle {
 	 * @param tire que va a tener el vehículo.
 	 */
 	public void setTire(Tire tire) {
-		this.tire = tire;
+		this.tire = new Tire(tire.getBrand(), tire.getPressure());
 	}
 
 	/**
@@ -112,7 +112,7 @@ public abstract class Vehicle {
 	 * @return batería del vehículo.
 	 */
 	public Battery getBattery() {
-		return battery;
+		return new Battery(battery.getId(), battery.getCapacity());
 	}
 
 	/**
@@ -121,7 +121,7 @@ public abstract class Vehicle {
 	 * @param battery que va a tener el vehículo.
 	 */
 	public void setBattery(Battery battery) {
-		this.battery = battery;
+		this.battery = new Battery(battery.getId(), battery.getCapacity());
 	}
 
 	/**
@@ -130,7 +130,7 @@ public abstract class Vehicle {
 	 * @return carrocería del vehículo.
 	 */
 	public Bodywork getBodywork() {
-		return bodywork;
+		return new Bodywork(bodywork.getColor(),bodywork.getPuertas());
 	}
 
 	/**
@@ -139,7 +139,7 @@ public abstract class Vehicle {
 	 * @param bodywork que va a tener el vehículo.
 	 */
 	public void setBodywork(Bodywork bodywork) {
-		this.bodywork = bodywork;
+		this.bodywork = new Bodywork(bodywork.getColor(), bodywork.getPuertas());
 	}
 
 	/**
@@ -166,7 +166,7 @@ public abstract class Vehicle {
 	 * @return motor del vehículo.
 	 */
 	public Engine getEngine() {
-		return engine;
+		return new Engine(engine.getId(),engine.getOn(), engine.getPower());
 	}
 
 	/**
@@ -175,7 +175,7 @@ public abstract class Vehicle {
 	 * @param engine que va a tener el vehículo.
 	 */
 	public void setEngine(Engine engine) {
-		this.engine = engine;
+		this.engine = new Engine(engine.getId(), engine.getOn(), engine.getPower());
 	}
 
 	/**
@@ -184,7 +184,7 @@ public abstract class Vehicle {
 	 * @return aire del vehículo.
 	 */
 	public Air getAir() {
-		return air;
+		return new Air(air.getGas(), air.getOn());
 	}
 
 	/**
@@ -193,7 +193,7 @@ public abstract class Vehicle {
 	 * @param air que va a tener el vehículo.
 	 */
 	public void setAir(Air air) {
-		this.air = air;
+		this.air = new Air(air.getGas(), air.getOn());
 	}
 
 	/**

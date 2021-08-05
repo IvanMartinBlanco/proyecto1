@@ -38,7 +38,7 @@ public class Hybrid extends Vehicle {
 	public Hybrid(Long id, String model, Tire tire, Battery battery, Bodywork bodywork, Engine engine, Air air,
 			HydrogenTank hydrogenTank) {
 		super(id, model, tire, battery, bodywork, engine, air);
-		this.hydrogenTank = hydrogenTank;
+		this.hydrogenTank = new HydrogenTank(hydrogenTank.getCapacity());
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class Hybrid extends Vehicle {
 	 * @return tanque de hidrógeno.
 	 */
 	public HydrogenTank getHydrogenTank() {
-		return hydrogenTank;
+		return new HydrogenTank(hydrogenTank.getCapacity());
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class Hybrid extends Vehicle {
 	 * @param hydrogenTank que va a tener el coche.
 	 */
 	public void setHydrogenTank(HydrogenTank hydrogenTank) {
-		this.hydrogenTank = hydrogenTank;
+		this.hydrogenTank = new HydrogenTank(hydrogenTank.getCapacity());
 	}
 
 	/**

@@ -41,8 +41,8 @@ public class Combustion extends Vehicle {
 	public Combustion(Long id, String model, Tire tire, Battery battery, Bodywork bodywork, Engine engine, Air air,
 			Injection injection, GasTank gasTank) {
 		super(id, model, tire, battery, bodywork, engine, air);
-		this.injection = injection;
-		this.gasTank = gasTank;
+		this.injection = new Injection(injection.getNumber(), injection.isSequential());
+		this.gasTank = new GasTank(gasTank.getCapacity());
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class Combustion extends Vehicle {
 	 * @return inyectores del coche.
 	 */
 	public Injection getInjection() {
-		return injection;
+		return new Injection(injection.getNumber(), injection.isSequential());
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class Combustion extends Vehicle {
 	 * @param injection que va a tener el coche.
 	 */
 	public void setInjection(Injection injection) {
-		this.injection = injection;
+		this.injection = new Injection(injection.getNumber(), injection.isSequential());
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class Combustion extends Vehicle {
 	 * @return tanque de gasolina.
 	 */
 	public GasTank getGasTank() {
-		return gasTank;
+		return new GasTank(gasTank.getCapacity());
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class Combustion extends Vehicle {
 	 * @param gasTank que va a tener el coche.
 	 */
 	public void setGasTank(GasTank gasTank) {
-		this.gasTank = gasTank;
+		this.gasTank = new GasTank(gasTank.getCapacity());
 	}
 
 	/**
