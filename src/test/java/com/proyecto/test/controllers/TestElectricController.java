@@ -148,59 +148,6 @@ public class TestElectricController {
 
 	@Order(8)
 	@Test
-	@DisplayName("Test POST para guardar un coche.")
-	void testSaveElectric() {
-		
-		final HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-
-		String productPayload = """
-				
-				{
-				"id":0,
-				"model":"Seat",
-				"tire":{
-					"brand":"Michelin",
-					"pressure":2.5
-				},
-				"battery":{
-					"id":1,
-					"on":true,
-					"capacity":8
-				},
-				"bodywork":{
-					"color":"Gris",
-					"puertas":3
-				},
-				"started":true,
-				"engine":{
-				"id":1,
-				"on":true,
-				"power":120
-				},
-				"air":{
-					"gas":50,
-					"on":true
-				}
-				}
-											""";
-
-		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
-
-		final ResponseEntity<Electric> response = testRestTemplate.exchange("/api/electric", HttpMethod.POST, 
-				request, Electric.class);
-
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-
-		Electric car = response.getBody();
-		assertNotNull(car.getBodywork());
-		assertEquals("Seat", car.getModel());
-
-	}
-	
-	@Order(9)
-	@Test
 	@DisplayName("Test POST para guardar un coche pasando un id incorrecto.")
 	void testSaveElectricNone() {
 		
@@ -246,59 +193,7 @@ public class TestElectricController {
 
 	}
 	
-	@Order(10)
-	@Test
-	@DisplayName("Test PUT para modificar un coche pasando un id.")
-	void testEditElectric() {
-		
-		final HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-
-		String productPayload = """
-				{
-				"id":2,
-				"model":"Seat",
-				"tire":{
-					"brand":"Michelin",
-					"pressure":2.5
-				},
-				"battery":{
-					"id":1,
-					"on":true,
-					"capacity":8
-				},
-				"bodywork":{
-					"color":"Gris",
-					"puertas":3
-				},
-				"started":true,
-				"engine":{
-				"id":1,
-				"on":true,
-				"power":120
-				},
-				"air":{
-					"gas":50,
-					"on":true
-				}
-				}
-				
-											""";
-
-		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
-
-		final ResponseEntity<Electric> response = testRestTemplate.exchange("/api/electric", HttpMethod.PUT,
-				request, Electric.class);
-
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-
-		Electric car = response.getBody();
-		assertEquals("Seat", car.getModel());
-
-	}
-	
-	@Order(11)
+	@Order(9)
 	@Test
 	@DisplayName("Test PUT para modificar un coche pasando un id incorrecto.")
 	void testEditElectricNone() {
@@ -348,7 +243,7 @@ public class TestElectricController {
 	}
 	
 	
-	@Order(12)
+	@Order(10)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id.")
 	void testDeleteElectric() {
@@ -361,7 +256,7 @@ public class TestElectricController {
 
 	}
 	
-	@Order(13)
+	@Order(11)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id incorrecto.")
 	void testDeleteElectricNone() {
@@ -374,7 +269,7 @@ public class TestElectricController {
 
 	}
 
-	@Order(14)
+	@Order(12)
 	@Test
 	@DisplayName("Test DELETE para borrar todos los coches.")
 	void testDeleteAllElectric() {

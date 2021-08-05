@@ -145,60 +145,8 @@ public class TestHybridController {
 		assertEquals(0, vehiculo.length);
 	}
 
-	@Order(8)
-	@Test
-	@DisplayName("Test POST para guardar un coche.")
-	void testSaveHybrid() {
-		
-		final HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-
-		String productPayload = """
-				
-				{
-				"id":0,
-				"model":"Seat",
-				"tire":{
-					"brand":"Michelin",
-					"pressure":2.5
-				},
-				"battery":{
-					"id":1,
-					"on":true,
-					"capacity":8
-				},
-				"bodywork":{
-					"color":"Gris",
-					"puertas":3
-				},
-				"started":true,
-				"engine":{
-				"id":1,
-				"on":true,
-				"power":120
-				},
-				"air":{
-					"gas":50,
-					"on":true
-				}
-				}
-											""";
-
-		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
-
-		final ResponseEntity<Hybrid> response = testRestTemplate.exchange("/api/hybrid", HttpMethod.POST, 
-				request, Hybrid.class);
-
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-
-		Hybrid car = response.getBody();
-		assertNotNull(car.getBodywork());
-		assertEquals("Seat", car.getModel());
-
-	}
 	
-	@Order(9)
+	@Order(8)
 	@Test
 	@DisplayName("Test POST para guardar un coche pasando un id incorrecto.")
 	void testSaveHybridNone() {
@@ -245,59 +193,8 @@ public class TestHybridController {
 
 	}
 	
-	@Order(10)
-	@Test
-	@DisplayName("Test PUT para modificar un coche pasando un id.")
-	void testEditHybrid() {
-		
-		final HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-
-		String productPayload = """
-				{
-				"id":2,
-				"model":"Seat",
-				"tire":{
-					"brand":"Michelin",
-					"pressure":2.5
-				},
-				"battery":{
-					"id":1,
-					"on":true,
-					"capacity":8
-				},
-				"bodywork":{
-					"color":"Gris",
-					"puertas":3
-				},
-				"started":true,
-				"engine":{
-				"id":1,
-				"on":true,
-				"power":120
-				},
-				"air":{
-					"gas":50,
-					"on":true
-				}
-				}
-				
-											""";
-
-		final HttpEntity<String> request = new HttpEntity<>(productPayload, headers);
-
-		final ResponseEntity<Hybrid> response = testRestTemplate.exchange("/api/hybrid", HttpMethod.PUT,
-				request, Hybrid.class);
-
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-
-		Hybrid car = response.getBody();
-		assertEquals("Seat", car.getModel());
-
-	}
 	
-	@Order(11)
+	@Order(10)
 	@Test
 	@DisplayName("Test PUT para modificar un coche pasando un id incorrecto.")
 	void testEditHybridNone() {
@@ -347,7 +244,7 @@ public class TestHybridController {
 	}
 	
 	
-	@Order(12)
+	@Order(11)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id.")
 	void testDeleteHybrid() {
@@ -360,7 +257,7 @@ public class TestHybridController {
 
 	}
 	
-	@Order(13)
+	@Order(12)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id incorrecto.")
 	void testDeleteHybridNone() {
@@ -373,7 +270,7 @@ public class TestHybridController {
 
 	}
 
-	@Order(14)
+	@Order(13)
 	@Test
 	@DisplayName("Test DELETE para borrar todos los coches.")
 	void testDeleteAllHybrid() {
