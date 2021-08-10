@@ -13,6 +13,7 @@ public class InvalidVehicle extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
+
 	/**
 	 * Constructor con parámetros para la clase.
 	 * 
