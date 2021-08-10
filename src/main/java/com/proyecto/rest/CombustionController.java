@@ -42,7 +42,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/combustion
 	 * 
 	 * @return lista con todos los coches de combustión.
@@ -53,7 +53,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/combustion/color/[color] 
 	 * Ejemplo: http://localhost:8080/api/combustion/color/Rojo
 	 * 
@@ -67,7 +67,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/combustion/doors/[door] 
 	 * Ejemplo: http://localhost:8080/api/combustion/doors/5
 	 * 
@@ -81,7 +81,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/combustion/name/[name] 
 	 * Ejemplo: http://localhost:8080/api/combustion/name/Toyota
 	 * 
@@ -95,7 +95,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para guardar un vehículo con POST en la URL:
+	 * Método que se usará para guardar un vehículo con POST en la URL:
 	 * http://localhost:8080/api/combustion
 	 * 
 	 * @param combustion vehículo de combustión a crear.
@@ -111,7 +111,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para modificar un vehículo con PUT en la URL:
+	 * Método que se usará para modificar un vehículo con PUT en la URL:
 	 * http://localhost:8080/api/combustion
 	 * 
 	 * @param combustion vehículo de combustión a modificar.
@@ -127,7 +127,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para DELETE en la URL:
+	 * Método que se usará para DELETE en la URL:
 	 * http://localhost:8080/api/combustion/[id]
 	 * 
 	 * @param id del vehículo a borrar.
@@ -143,7 +143,7 @@ public class CombustionController {
 	}
 
 	/**
-	 * Función que se usará para borrar todo con DELETE en la URL:
+	 * Método que se usará para borrar todo con DELETE en la URL:
 	 * http://localhost:8080/api/combustion
 	 * 
 	 * @return respuesta sobre si se ha borrado o no.
