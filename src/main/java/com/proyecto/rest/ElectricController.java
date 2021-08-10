@@ -42,7 +42,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/electric
 	 * 
 	 * @return lista con todos los coches eléctricos.
@@ -53,7 +53,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/electric/color/[color]
 	 * Ejemplo: http://localhost:8080/api/electric/color/Rojo
 	 * 
@@ -67,7 +67,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/electric/doors/[door]
 	 * Ejemplo: http://localhost:8080/api/electric/doors/5
 	 * 
@@ -81,7 +81,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para GET en la URL:
+	 * Método que se usará para GET en la URL:
 	 * http://localhost:8080/api/electric/name/[name]
 	 * Ejemplo: http://localhost:8080/api/electric/name/Toyota
 	 * 
@@ -95,7 +95,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para guardar un vehículo con POST en la URL:
+	 * Método que se usará para guardar un vehículo con POST en la URL:
 	 * http://localhost:8080/api/electric
 	 * 
 	 * @param electrico vehículo eléctrico a crear.
@@ -111,7 +111,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para actualizar un vehículo con PUT en la URL:
+	 * Método que se usará para actualizar un vehículo con PUT en la URL:
 	 * http://localhost:8080/api/electric
 	 * 
 	 * @param electrico vehículo eléctrico a modificar.
@@ -127,7 +127,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para DELETE en la URL:
+	 * Método que se usará para DELETE en la URL:
 	 * http://localhost:8080/api/electric/[id]
 	 * 
 	 * @param id del vehículo a borrar.
@@ -143,7 +143,7 @@ public class ElectricController {
 	}
 
 	/**
-	 * Función que se usará para borrar todo con DELETE en la URL:
+	 * Método que se usará para borrar todo con DELETE en la URL:
 	 * http://localhost:8080/api/electric
 	 * 
 	 * @return respuesta sobre si se ha borrado o no.
