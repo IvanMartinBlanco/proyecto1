@@ -30,7 +30,7 @@ pipeline {
             
             steps{
                 
-                sh 'mvn verify sonar:sonar -Dsonar.projectKey=IvanMartinBlanco_m3-maven-clase -Dsonar.organization=ivanmartinblanco -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=2b0517953686442777fc4ca60fc0397821c643ae -Dsonar.branch.name=master'
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=IvanMartinBlanco_proyecto1 -Dsonar.organization=ivanmartinblanco -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=99b120a856777cde2e1be2e37f45950aeccfd2f3 -Dsonar.branch.name=master'
             }
 
         }
