@@ -19,7 +19,7 @@ import com.proyecto.service.InvalidVehicle;
 
 import com.proyecto.service.patterns.VehicleFactory;
 
-public class VehicleFactoryTest {
+class VehicleFactoryTest {
 //	assertNotNull
 //	assertTrue insteanceof
 //	assertEquals getname

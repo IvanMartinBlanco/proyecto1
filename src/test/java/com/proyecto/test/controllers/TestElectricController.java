@@ -33,7 +33,7 @@ import com.proyecto.domain.Electric;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class TestElectricController {
+class TestElectricController {
 
 	private TestRestTemplate testRestTemplate;
 

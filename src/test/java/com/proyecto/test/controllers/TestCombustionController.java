@@ -29,7 +29,7 @@ import com.proyecto.domain.Combustion;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class TestCombustionController {
+class TestCombustionController {
 
 	private TestRestTemplate testRestTemplate;
 

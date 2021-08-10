@@ -23,7 +23,7 @@ import com.proyecto.domain.pieces.Tire;
 import com.proyecto.service.HybridServiceImpl;
 
 
-public class HybridServiceImplTest {
+class HybridServiceImplTest {
 
 	HybridServiceImpl sut;
 	

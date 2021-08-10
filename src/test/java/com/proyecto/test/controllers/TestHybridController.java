@@ -29,7 +29,7 @@ import com.proyecto.domain.Hybrid;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class TestHybridController {
+class TestHybridController {
 
 	private TestRestTemplate testRestTemplate;
 

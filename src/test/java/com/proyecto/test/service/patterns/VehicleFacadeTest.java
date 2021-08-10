@@ -16,7 +16,7 @@ import com.proyecto.domain.pieces.Engine;
 import com.proyecto.domain.pieces.Tire;
 import com.proyecto.service.patterns.VehicleFacade;
 
-public class VehicleFacadeTest{
+class VehicleFacadeTest{
 
 	@Test
 	@DisplayName("Comprobar la creación de vehículo eléctrico.")

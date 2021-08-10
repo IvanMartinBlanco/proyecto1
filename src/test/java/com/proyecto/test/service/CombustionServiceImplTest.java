@@ -23,7 +23,7 @@ import com.proyecto.domain.pieces.Tire;
 import com.proyecto.service.CombustionServiceImpl;
 
 
-public class CombustionServiceImplTest {
+class CombustionServiceImplTest {
 
 	CombustionServiceImpl sut;
 	
