@@ -7,9 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +17,6 @@ import com.proyecto.domain.pieces.Battery;
 import com.proyecto.domain.pieces.Bodywork;
 import com.proyecto.domain.pieces.Engine;
 import com.proyecto.domain.pieces.EngineBattery;
-import com.proyecto.domain.pieces.HydrogenTank;
 import com.proyecto.domain.pieces.Tire;
 import com.proyecto.service.ElectricServiceImpl;
 

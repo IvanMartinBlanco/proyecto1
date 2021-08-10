@@ -8,15 +8,12 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.proyecto.domain.Combustion;
 import com.proyecto.domain.Electric;
 import com.proyecto.domain.pieces.Air;
 import com.proyecto.domain.pieces.Battery;
 import com.proyecto.domain.pieces.Bodywork;
 import com.proyecto.domain.pieces.Engine;
 import com.proyecto.domain.pieces.EngineBattery;
-import com.proyecto.domain.pieces.GasTank;
-import com.proyecto.domain.pieces.Injection;
 import com.proyecto.domain.pieces.Tire;
 
 /**

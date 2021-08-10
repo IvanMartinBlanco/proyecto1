@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 
 import com.proyecto.domain.Hybrid;
 import com.proyecto.service.HybridService;
-import com.proyecto.service.HybridServiceImpl;
 
 /**
  * Clase para conectar el vehículo híbrido con su servicio.

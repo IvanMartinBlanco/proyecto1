@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 
 import com.proyecto.domain.Combustion;
 import com.proyecto.service.CombustionService;
-import com.proyecto.service.CombustionServiceImpl;
 
 /**
  * Clase para conectar el vehículo de combustíon con su servicio.

@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 
 import com.proyecto.domain.Electric;
 import com.proyecto.service.ElectricService;
-import com.proyecto.service.ElectricServiceImpl;
 
 /**
  * Clase para conectar el vehículo eléctrico con su servicio.

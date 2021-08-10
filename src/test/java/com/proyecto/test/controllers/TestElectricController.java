@@ -2,7 +2,6 @@ package com.proyecto.test.controllers;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
 
 
 import java.util.Arrays;
