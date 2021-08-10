@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.proyecto.domain.Combustion;
 import com.proyecto.service.CombustionService;
+import com.proyecto.service.CombustionServiceImpl;
 
 /**
  * Clase para conectar el vehículo de combustíon con su servicio.
@@ -30,12 +31,12 @@ import com.proyecto.service.CombustionService;
 @Consumes(MediaType.APPLICATION_JSON) 
 public class CombustionController {
 
-	private CombustionService combustionService;
+	private final CombustionService combustionService;
 
 	/**
 	 * Constructor del controlador.
 	 * 
-	 * @param combustionService servicio para los vehículos de combustión.
+	 * @param combustionService parámetro del servicio.
 	 */
 	public CombustionController(CombustionService combustionService) {
 		this.combustionService = combustionService;

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.proyecto.domain.Hybrid;
 import com.proyecto.service.HybridService;
+import com.proyecto.service.HybridServiceImpl;
 
 /**
  * Clase para conectar el vehículo híbrido con su servicio.
@@ -30,12 +31,12 @@ import com.proyecto.service.HybridService;
 @Consumes(MediaType.APPLICATION_JSON)
 public class HybridController {
 
-	private HybridService hybridService;
+	private final HybridService hybridService;
 
 	/**
 	 * Constructor del controlador.
 	 * 
-	 * @param hybridService servicio para los vehículos híbridos.
+	 * @param hybridService parámetro del servicio.
 	 */
 	public HybridController(HybridService hybridService) {
 		this.hybridService = hybridService;

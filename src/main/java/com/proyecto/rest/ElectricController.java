@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.proyecto.domain.Electric;
 import com.proyecto.service.ElectricService;
+import com.proyecto.service.ElectricServiceImpl;
 
 /**
  * Clase para conectar el vehículo eléctrico con su servicio.
@@ -30,12 +31,12 @@ import com.proyecto.service.ElectricService;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ElectricController {
 
-	private ElectricService electricService;
+	private final ElectricService electricService;
 
 	/**
 	 * Constructor del controlador.
 	 * 
-	 * @param electricService servicio para los vehículos eléctricos.
+	 * @param electricService parámetro del servicio.
 	 */
 	public ElectricController(ElectricService electricService) {
 		this.electricService = electricService;
