@@ -18,6 +18,7 @@ public class VehicleFactory {
 	/**
 	 * Constructor que crea una fachada sin parámetros privada, para que no se pueda instanciar.
 	 */
+	private VehicleFactory() {}
 
 
 	/**
