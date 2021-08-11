@@ -11,7 +11,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import com.proyecto.domain.Hybrid;
 import com.proyecto.domain.pieces.Air;
@@ -167,16 +168,27 @@ class HybridServiceImplTest {
 	}
 	
 	
-	@Test
+	@ParameterizedTest
+	@ValueSource(strings = {"Tesla", "abc"})
 	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del nombre del modelo.")
-	void testFindName() {
-		List<Hybrid> vehiculos = sut.findName("Tesla");
-		assertEquals(1, vehiculos.size());
+	void testFindName(String args) {
+		List<Hybrid> vehiculos = sut.findName(args);
+		if(args.equals("Tesla")) {
+			assertEquals(1, vehiculos.size());
+			
+			sut.delete(1L);
+			
+			vehiculos = sut.findName(args);
+			assertEquals(0, vehiculos.size());
+		}else {
+			assertEquals(0, vehiculos.size());
+			
+			sut.delete(1L);
+			
+			vehiculos = sut.findName(args);
+			assertEquals(0, vehiculos.size());
+		}
 		
-		sut.delete(1L);
-		
-		vehiculos = sut.findName("Tesla");
-		assertEquals(0, vehiculos.size());
 		
 
 	}
@@ -194,20 +206,6 @@ class HybridServiceImplTest {
 		assertEquals(0, vehiculos.size());
 		
 
-	}
-	
-	
-	@Test
-	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del nombre del modelo con un parámetro sin resultados.")
-	void testFindNameNone() {
-		List<Hybrid> vehiculos = sut.findName("abc");
-		assertEquals(0, vehiculos.size());
-		
-		sut.delete(1L);
-		
-		vehiculos = sut.findName("abc");
-		assertEquals(0, vehiculos.size());
-	
 	}
 	
 	@Test
