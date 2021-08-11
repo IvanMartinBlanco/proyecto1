@@ -150,7 +150,7 @@ class TestElectricController {
 
 		String productPayload = """
 				{
-				"id":1,
+				"id":0,
 				"model":"Seat",
 				"tire":{
 					"brand":"Michelin",
@@ -197,7 +197,7 @@ class TestElectricController {
 
 		String productPayload = """
 				{
-				"id":0,
+				"id":2,
 				"model":"Seat",
 				"tire":{
 					"brand":"Michelin",
