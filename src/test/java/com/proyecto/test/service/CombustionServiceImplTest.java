@@ -11,6 +11,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import com.proyecto.domain.Combustion;
 import com.proyecto.domain.pieces.Air;
@@ -166,17 +168,26 @@ class CombustionServiceImplTest {
 	}
 	
 	
-	@Test
+	@ParameterizedTest
+	@ValueSource(strings = {"Mazda", "abc"})
 	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del nombre del modelo.")
-	void testFindName() {
-		List<Combustion> vehiculos = sut.findName("Mazda");
-		assertEquals(1, vehiculos.size());
-		
-		sut.delete(1L);
-		
-		vehiculos = sut.findName("Mazda");
-		assertEquals(0, vehiculos.size());
-		
+	void testFindName(String args) {
+		List<Combustion> vehiculos = sut.findName(args);
+		if(args.equals("Mazda")) {
+			assertEquals(1, vehiculos.size());
+			
+			sut.delete(1L);
+			
+			vehiculos = sut.findName(args);
+			assertEquals(0, vehiculos.size());
+		}else {
+			assertEquals(0, vehiculos.size());
+			
+			sut.delete(1L);
+			
+			vehiculos = sut.findName(args);
+			assertEquals(0, vehiculos.size());
+		}
 
 	}
 	
@@ -194,20 +205,7 @@ class CombustionServiceImplTest {
 		
 
 	}
-	
-	
-	@Test
-	@DisplayName("Test que comprueba el método para recuperar los vehículos dependiendo del nombre del modelo con un parámetro sin resultados.")
-	void testFindNameNone() {
-		List<Combustion> vehiculos = sut.findName("abc");
-		assertEquals(0, vehiculos.size());
-		
-		sut.delete(1L);
-		
-		vehiculos = sut.findName("abc");
-		assertEquals(0, vehiculos.size());
-	
-	}
+
 	
 	@Test
 	@DisplayName("Test que comprueba el método para guardar un nuevo vehículo de combustión con id autogenerado.")
