@@ -14,6 +14,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -58,36 +60,28 @@ class TestElectricController {
 
 	}
 
+
 	@Order(2)
-	@Test
+	@ParameterizedTest
+	@ValueSource(strings = {"Azul", "Rojo"})
 	@DisplayName("Test GET con coches según color.")
-	void Electric() {
+	void testFindByColorElectric(String args) {
 
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/color/Azul",
+		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/color/"+args,
 				Electric[].class);
-
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-
 		Electric[] vehiculo = response.getBody();
-		assertNotEquals(0, vehiculo.length);
-		for (Electric electric : vehiculo) {
-			assertEquals("Azul", electric.getBodywork().getColor());
+		if(args.equals("Rojos")) {
+			assertEquals(0, vehiculo.length);
+		}else {
+			for (Electric electric : vehiculo) {
+				assertEquals(args, electric.getBodywork().getColor());
+			}
 		}
+		
 	}
 
 	@Order(3)
-	@Test
-	@DisplayName("Test GET con coches según color que no existe.")
-	void testFindByColorElectricNone() {
-
-		ResponseEntity<Electric[]> response = this.testRestTemplate.getForEntity("/api/electric/color/Rojo",
-				Electric[].class);
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-		Electric[] vehiculo = response.getBody();
-		assertEquals(0, vehiculo.length);
-	}
-
-	@Order(4)
 	@Test
 	@DisplayName("Test GET con coches según número de puertas.")
 	void testFindByDoorElectric() {
@@ -104,7 +98,7 @@ class TestElectricController {
 		}
 	}
 
-	@Order(5)
+	@Order(4)
 	@Test
 	@DisplayName("Test GET con coches según número de puertas que no existe.")
 	void testFindByDoorElectricNone() {
@@ -116,7 +110,7 @@ class TestElectricController {
 		assertEquals(0, vehiculo.length);
 	}
 
-	@Order(6)
+	@Order(5)
 	@Test
 	@DisplayName("Test GET con coches según nombre del modelo.")
 	void testFindByNameElectric() {
@@ -132,7 +126,7 @@ class TestElectricController {
 		}
 	}
 
-	@Order(7)
+	@Order(6)
 	@Test
 	@DisplayName("Test GET con coches según nombre del modelo que no existe.")
 	void testFindByNameElectricNone() {
@@ -145,7 +139,7 @@ class TestElectricController {
 		assertEquals(0, vehiculo.length);
 	}
 
-	@Order(8)
+	@Order(7)
 	@Test
 	@DisplayName("Test POST para guardar un coche pasando un id incorrecto.")
 	void testSaveElectricNone() {
@@ -192,7 +186,7 @@ class TestElectricController {
 
 	}
 	
-	@Order(9)
+	@Order(8)
 	@Test
 	@DisplayName("Test PUT para modificar un coche pasando un id incorrecto.")
 	void testEditElectricNone() {
@@ -242,7 +236,7 @@ class TestElectricController {
 	}
 	
 	
-	@Order(10)
+	@Order(9)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id.")
 	void testDeleteElectric() {
@@ -255,7 +249,7 @@ class TestElectricController {
 
 	}
 	
-	@Order(11)
+	@Order(10)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id incorrecto.")
 	void testDeleteElectricNone() {
@@ -268,7 +262,7 @@ class TestElectricController {
 
 	}
 
-	@Order(12)
+	@Order(11)
 	@Test
 	@DisplayName("Test DELETE para borrar todos los coches.")
 	void testDeleteAllElectric() {

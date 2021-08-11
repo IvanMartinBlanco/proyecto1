@@ -61,17 +61,21 @@ class TestCombustionController {
 	@Order(2)
 	@ParameterizedTest
 	@ValueSource(strings = {"Blanco", "Morado"})
-	@DisplayName("Test GET con coches según color que no existe.")
-	void testFindByColorCombustionNone(String arg) {
+	@DisplayName("Test GET con coches según color.")
+	void testFindByColorCombustion(String args) {
 
-		ResponseEntity<Combustion[]> response = this.testRestTemplate.getForEntity("/api/combustion/color/"+arg,
+		ResponseEntity<Combustion[]> response = this.testRestTemplate.getForEntity("/api/combustion/color/"+args,
 				Combustion[].class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		Combustion[] vehiculo = response.getBody();
-
-		for (Combustion combustion : vehiculo) {
-			assertEquals(arg, combustion.getBodywork().getColor());
+		if(args.equals("Morado")) {
+			assertEquals(0, vehiculo.length);
+		}else {
+			for (Combustion combustion : vehiculo) {
+				assertEquals(args, combustion.getBodywork().getColor());
+			}
 		}
+	
 	}
 
 	@Order(3)
@@ -91,7 +95,7 @@ class TestCombustionController {
 		}
 	}
 
-	@Order(5)
+	@Order(4)
 	@Test
 	@DisplayName("Test GET con coches según número de puertas que no existe.")
 	void testFindByDoorCombustionNone() {
@@ -103,7 +107,7 @@ class TestCombustionController {
 		assertEquals(0, vehiculo.length);
 	}
 
-	@Order(6)
+	@Order(5)
 	@Test
 	@DisplayName("Test GET con coches según nombre del modelo.")
 	void testFindByNameCombustion() {
@@ -118,7 +122,7 @@ class TestCombustionController {
 		}
 	}
 
-	@Order(7)
+	@Order(6)
 	@Test
 	@DisplayName("Test GET con coches según nombre del modelo que no existe.")
 	void testFindByNameCombustionNone() {
@@ -131,7 +135,7 @@ class TestCombustionController {
 		assertEquals(0, vehiculo.length);
 	}
 
-	@Order(8)
+	@Order(7)
 	@Test
 	@DisplayName("Test POST para guardar un coche.")
 	void testSaveCombustion() {
@@ -190,7 +194,7 @@ class TestCombustionController {
 
 	}
 	
-	@Order(9)
+	@Order(8)
 	@Test
 	@DisplayName("Test POST para guardar un coche pasando un id incorrecto.")
 	void testSaveCombustionNone() {
@@ -244,7 +248,7 @@ class TestCombustionController {
 
 	}
 	
-	@Order(10)
+	@Order(9)
 	@Test
 	@DisplayName("Test PUT para modificar un coche pasando un id.")
 	void testEditCombustion() {
@@ -302,7 +306,7 @@ class TestCombustionController {
 
 	}
 	
-	@Order(11)
+	@Order(10)
 	@Test
 	@DisplayName("Test PUT para modificar un coche pasando un id incorrecto.")
 	void testEditCombustionNone() {
@@ -358,7 +362,7 @@ class TestCombustionController {
 	}
 	
 	
-	@Order(12)
+	@Order(11)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id.")
 	void testDeleteCombustion() {
@@ -371,7 +375,7 @@ class TestCombustionController {
 
 	}
 	
-	@Order(13)
+	@Order(12)
 	@Test
 	@DisplayName("Test DELETE para borrar un coche pasando un id incorrecto.")
 	void testDeleteCombustionNone() {
@@ -384,7 +388,7 @@ class TestCombustionController {
 
 	}
 
-	@Order(14)
+	@Order(13)
 	@Test
 	@DisplayName("Test DELETE para borrar todos los coches.")
 	void testDeleteAllCombustion() {
