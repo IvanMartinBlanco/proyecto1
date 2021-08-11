@@ -12,6 +12,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -55,36 +57,24 @@ class TestCombustionController {
 
 	}
 
+
 	@Order(2)
-	@Test
-	@DisplayName("Test GET con coches según color.")
-	void testFindByColorCombustion() {
+	@ParameterizedTest
+	@ValueSource(strings = {"Blanco", "Morado"})
+	@DisplayName("Test GET con coches según color que no existe.")
+	void testFindByColorCombustionNone(String arg) {
 
-		ResponseEntity<Combustion[]> response = this.testRestTemplate.getForEntity("/api/combustion/color/Blanco",
+		ResponseEntity<Combustion[]> response = this.testRestTemplate.getForEntity("/api/combustion/color/"+arg,
 				Combustion[].class);
-
 		assertEquals(HttpStatus.OK, response.getStatusCode());
-
 		Combustion[] vehiculo = response.getBody();
-		assertNotEquals(0, vehiculo.length);
+
 		for (Combustion combustion : vehiculo) {
-			assertEquals("Blanco", combustion.getBodywork().getColor());
+			assertEquals(arg, combustion.getBodywork().getColor());
 		}
 	}
 
 	@Order(3)
-	@Test
-	@DisplayName("Test GET con coches según color que no existe.")
-	void testFindByColorCombustionNone() {
-
-		ResponseEntity<Combustion[]> response = this.testRestTemplate.getForEntity("/api/combustion/color/Morado",
-				Combustion[].class);
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-		Combustion[] vehiculo = response.getBody();
-		assertEquals(0, vehiculo.length);
-	}
-
-	@Order(4)
 	@Test
 	@DisplayName("Test GET con coches según número de puertas.")
 	void testFindByDoorCombustion() {
